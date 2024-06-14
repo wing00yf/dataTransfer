@@ -313,4 +313,5 @@ public class UserInfo implements Serializable {
 		sb.append("]");
 		return sb.toString();
 	}
+
 }
