@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <classPathEntry location="D:\Software\DevelopeENV\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar"/>
+  <!--targetRuntime ="MyBatis3"  设置为老版模式生成xml文件-->
+  <context id="context1" targetRuntime ="MyBatis3">
+	<property name="autoDelimitKeywords" value="true" />
+	<property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+	<plugin type= "org.mybatis.generator.plugins.SerializablePlugin" />
+	<plugin type= "org.mybatis.generator.plugins.ToStringPlugin" />
+	
+	<!-- 生成 mapper.xml时不 merge 直接覆盖原文件 -->
+    <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+    <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/infordata?serverTimezone=UTC" driverClass="com.mysql.jdbc.Driver" password="Root123$%" userId="root" />
+    <!--包名位置 -->
+    <javaModelGenerator targetPackage="com.dataTransfer.model" targetProject="dataTransfer/src/main/java" />
+    <!--映射文件名位置 -->
+    <sqlMapGenerator targetPackage="mapper" targetProject="dataTransfer/src/main/resources" >
+		<property name="enableSubPackages" value="true" />
+	</sqlMapGenerator>
+    <!--dao文件名位置 -->
+    <javaClientGenerator targetPackage="com.dataTransfer.dao" targetProject="dataTransfer/src/main/java" type="XMLMAPPER" />
+    <table schema="infordata" tableName="user_data" domainObjectName="UserInfo"
+    	enableCountByExample="false" enableUpdateByExample="false" 
+    	enableDeleteByExample="false" enableSelectByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+  </context>
+</generatorConfiguration>
